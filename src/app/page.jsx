@@ -14,6 +14,10 @@ export default function Home() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
 
+
+  // 環境変数の読み取り
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   // 商品検索処理
   const handleGetProduct = async() => {
     if (!productCode) {
@@ -24,7 +28,7 @@ export default function Home() {
     }
     setErrorMessage('');
     try{
-      const response = await fetch(`http://localhost:8000/products/${productCode}`);
+      const response = await fetch(`${apiUrl}/products/${productCode}`);
       const data = await response.json();
       // エラーの場合
       if(!response.ok){
