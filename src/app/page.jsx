@@ -70,7 +70,7 @@ export default function Home() {
 
     // APIリクエスト
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/purchase`, {
+      const response = await fetch(`${apiUrl}/purchase`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items: cart }),
